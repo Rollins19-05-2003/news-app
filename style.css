@@ -113,25 +113,47 @@ body {
 @media (max-width: 600px) {
     .navbar {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
+        align-items: center;
         height: 4rem;
+        padding: 0 10px;
     }
 
     .name {
         font-size: large;
     }
 
-    .searchbar, .filters {
+    .searchbar {
+        width: 100%;
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .searchinput {
+        width: 80%;
+        font-size: 10px;
+    }
+
+    .search-icon {
+        font-size: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 40px;
+    }
+
+    .filters {
         display: none;
     }
 
     .news--card {
-        width: 280px;
+        width: 280px; 
         margin: 5px; 
     }
 
     .news--image {
-        height: 200px;
+        height: 200px; 
     }
 
     .news--heading {
