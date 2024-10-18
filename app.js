@@ -1101,19 +1101,136 @@ const data = [
   },
 ];
 
+const subtleColors = [
+    {
+      name: "Lavender Mist",
+      color: "rgba(230, 224, 238, 0.8)",
+    },
+    {
+      name: "Mint Green",
+      color: "rgba(218, 240, 233, 0.8)",
+    },
+    {
+      name: "Peach Blossom",
+      color: "rgba(255, 235, 238, 0.8)",
+    },
+    {
+      name: "Sky Blue",
+      color: "rgba(219, 238, 248, 0.8)",
+    },
+    {
+      name: "Creamy Ivory",
+      color: "rgba(255, 253, 240, 0.8)",
+    },
+    {
+      name: "Light Gray",
+      color: "rgba(238, 238, 238, 0.8)",
+    },
+    {
+      name: "Pale Beige",
+      color: "rgba(245, 240, 235, 0.8)",
+    },
+    {
+      name: "Soft Sand",
+      color: "rgba(245, 240, 230, 0.8)",
+    },
+    {
+      name: "Silver Gray",
+      color: "rgba(220, 220, 220, 0.8)",
+    },
+    {
+      name: "Pearl White",
+      color: "rgba(255, 255, 245, 0.8)",
+    },
+    {
+      name: "Lilac Haze",
+      color: "rgba(235, 225, 240, 0.8)",
+    },
+    {
+      name: "Seafoam Green",
+      color: "rgba(220, 240, 238, 0.8)",
+    },
+    {
+      name: "Apricot Glow",
+      color: "rgba(255, 235, 225, 0.8)",
+    },
+    {
+      name: "Cloud White",
+      color: "rgba(255, 255, 255, 0.8)",
+    },
+    {
+      name: "Mist Blue",
+      color: "rgba(225, 235, 245, 0.8)",
+    },
+    {
+      name: "Soft Pink",
+      color: "rgba(255, 220, 230, 0.8)",
+    },
+    {
+      name: "Pale Yellow",
+      color: "rgba(255, 245, 220, 0.8)",
+    },
+    {
+      name: "Lavender Blush",
+      color: "rgba(255, 220, 240, 0.8)",
+    },
+    {
+      name: "Baby Blue",
+      color: "rgba(220, 230, 245, 0.8)",
+    },
+    {
+      name: "Creamy Beige",
+      color: "rgba(245, 240, 235, 0.8)",
+    },
+    {
+      name: "Light Green",
+      color: "rgba(225, 240, 230, 0.8)",
+    },
+    {
+      name: "Pale Orange",
+      color: "rgba(255, 235, 220, 0.8)",
+    },
+    {
+      name: "Soft Purple",
+      color: "rgba(230, 220, 240, 0.8)",
+    },
+    {
+      name: "Ivory White",
+      color: "rgba(255, 253, 245, 0.8)",
+    },
+    {
+      name: "Light Yellow",
+      color: "rgba(255, 245, 225, 0.8)",
+    },
+    {
+      name: "Pale Blue",
+      color: "rgba(220, 230, 240, 0.8)",
+    },
+    {
+      name: "Soft Red",
+      color: "rgba(255, 220, 225, 0.8)",
+    },
+    {
+      name: "Creamy White",
+      color: "rgba(255, 253, 245, 0.8)",
+    },
+    {
+      name: "Light Pink",
+      color: "rgba(255, 230, 235, 0.8)",
+    },
+  ];
+
 const news_container = document.querySelector(".news--container")
 const search_input = document.querySelector('.searchinput');
 const search_btn = document.querySelector('.search-icon');
 const element = document.querySelector(".full--page");
 
 // random color background generation
-function getRandomRGBColor() {
-    const r = Math.floor(Math.random() * 256); 
-    const g = Math.floor(Math.random() * 256); 
-    const b = Math.floor(Math.random() * 256); 
-    return `rgb(${r}, ${g}, ${b})`;
-}
-element.style.backgroundColor = getRandomRGBColor();
+function getRandomColor() {
+    const randomIndex = Math.floor(Math.random() * subtleColors.length);
+    return subtleColors[randomIndex].color;
+  }
+element.style.backgroundColor = getRandomColor();
 
 // news showing
 function showNews(data) {
