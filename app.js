@@ -277,7 +277,7 @@ sortby_filter.addEventListener('change', (event) => {
   loadNews(searchTerm, lang, preference);
 });
 
-// loadNews(searchTerm, lang, preference);
+loadNews(searchTerm, lang, preference);
   
 
 
