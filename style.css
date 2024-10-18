@@ -5,8 +5,7 @@
 }
 
 body {
-    height: 100vh;
-
+    height: 100vh; /* If needed, adjust this based on your content */
 }
 
 .navbar {
@@ -62,6 +61,7 @@ body {
     cursor: pointer;
     color: white;
 }
+
 .news--container{
     display: flex;
     justify-content: center;

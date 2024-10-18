@@ -1283,7 +1283,46 @@ function loadNews() {
 }
 loadNews();
 
+// filter based on popularity, date published and relevancy
+const filterSelect = document.querySelector(".filter");
 
+filterSelect.addEventListener("change", function () {
+  const selectedValue = filterSelect.value;
+  applyFilter(selectedValue);
+});
+
+function applyFilter(criteria) {
+    let sortedNews = [];
+  
+    switch (criteria) {
+      case "relevancy":
+        // Render the news in the normal sequence (original order)
+        sortedNews = [...data]; // Create a copy to maintain the original order
+        break;
+  
+      case "popularity":
+        // Sort by author name in lexicographical order
+        sortedNews = [...data].sort((a, b) => {
+          const authorA = a.author ? a.author.toLowerCase() : ""; // Handle undefined
+          const authorB = b.author ? b.author.toLowerCase() : ""; // Handle undefined
+          return authorA.localeCompare(authorB);
+        });
+        break;
+  
+      case "publishedAt":
+        sortedNews = [...data].sort((a, b) => {
+          return new Date(b.publishedAt) - new Date(a.publishedAt);
+        });
+        break;
+  
+      default:
+        sortedNews = [...data];
+        break;
+    }
+  
+    showNews(sortedNews);
+  }
+  
 // search functionality
 search_input.addEventListener("input", function () {
     const searchTerm = search_input.value.toLowerCase();
