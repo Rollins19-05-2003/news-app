@@ -197,7 +197,7 @@ function showNews(data) {
   news_container.innerHTML = "";
   data.forEach((news) => {
     console.log(news);
-    if(news.urlToImage != null){
+    if(news.image != null){
         const news_card = document.createElement("div");
         const news_source = document.createElement("span");
         const news_image = document.createElement("img");
@@ -209,7 +209,7 @@ function showNews(data) {
         news_source.innerText = news.source.name;
         news_source.className = "news--source"
     
-        news_image.setAttribute("src", news.urlToImage);
+        news_image.setAttribute("src", news.image);
         news_image.className = "news--image";
     
         news_content.className = "news--content";
@@ -217,7 +217,7 @@ function showNews(data) {
         news_heading.textContent = news.title;
         news_heading.className = "news--heading";
     
-        news_info.textContent = news.author + " " + new Date(news.publishedAt).toLocaleString();;
+        news_info.textContent = news.source.name + " " + new Date(news.publishedAt).toLocaleString();;
         news_info.className = "news--info";
     
         news_desc.textContent = news.description;
@@ -239,7 +239,8 @@ function showNews(data) {
 
 function loadNews(searchTerm, lang, preference) {
   console.log("Loading...");
-  fetch(`https://newsapi.org/v2/everything?q=${searchTerm}&apiKey=e4a49220c2874998b9900298aac654ea&language=${lang}&sortBy=${preference}`)
+  // fetch(`https://newsapi.org/v2/everything?q=${searchTerm}&apiKey=e4a49220c2874998b9900298aac654ea&language=${lang}&sortBy=${preference}`)
+  fetch(`https://gnews.io/api/v4/search?q=${searchTerm}&lang=${lang}&apikey=e9aeacc6b928a9df8c952425c7e12e55`)
     .then((res) => res.json())
     .then((res) => {
       let data = res.articles;
@@ -263,7 +264,6 @@ search_btn.addEventListener("click", function () {
 });
 
 // Adding event listener for dropdown change
-
 language_filter.addEventListener('change', (event) => {
   lang = event.target.value;
   console.log("Selected language:", lang);
@@ -271,11 +271,11 @@ language_filter.addEventListener('change', (event) => {
 });
 
 
-sortby_filter.addEventListener('change', (event) => {
-  preference = event.target.value;
-  console.log("Selected sortBy:", preference);
-  loadNews(searchTerm, lang, preference);
-});
+// sortby_filter.addEventListener('change', (event) => {
+//   preference = event.target.value;
+//   console.log("Selected sortBy:", preference);
+//   loadNews(searchTerm, lang, preference);
+// });
 
 loadNews(searchTerm, lang, preference);
   
